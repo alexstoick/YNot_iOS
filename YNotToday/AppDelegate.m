@@ -14,15 +14,16 @@
 	// Let the device know we want to receive push notifications
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-    
+
+    [[NSUserDefaults standardUserDefaults]  setInteger:1 forKey:@"user_id"];
     return YES;
 }
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
 	NSLog(@"My token is: %@", deviceToken);
-    NSUserDefaults * userDefaults ;
-    [userDefaults setInteger:@1 forKey:@"user_id"];
+//    [[NSUserDefaults standardUserDefaults]  setInteger:1 forKey:@"user_id"];
+
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error

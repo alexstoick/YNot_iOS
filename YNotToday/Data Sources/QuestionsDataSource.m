@@ -41,10 +41,10 @@ QuestionsDataSource * _questionsDataSource ;
 
 - (void)parseQuestionsWithCompletion:(void (^)(BOOL))completionBlock {
 
-    NSUserDefaults * userDefaults ;
-    NSInteger user_id = (NSInteger)[userDefaults valueForKey:@"user_id"] ;
-    NSString * url = [NSString stringWithFormat:@"%@/%d" , BaseURL , user_id ] ;
+    NSInteger user_id = [[[NSUserDefaults standardUserDefaults] valueForKey:@"user_id"] integerValue];
+    NSString * url = [NSString stringWithFormat:@"%@/users/%ld" , BaseURL , (long)user_id ] ;
 
+    NSLog(@"%@" , url ) ;
     [self.manager
             GET:url
      parameters:nil
@@ -60,7 +60,7 @@ QuestionsDataSource * _questionsDataSource ;
                 Question * currentQuestion = [[Question alloc] init];
                 Answer * currentAnswer = nil;
                 currentQuestion.body = [question valueForKey:@"body"] ;
-                currentQuestion.question_id = [[question valueForKey:@"id"] integerValue] ;
+                currentQuestion.question_id = (int)[[question valueForKey:@"id"] integerValue] ;
                 if ( [[question valueForKey:@"has_answer"] boolValue] )
                 {
                     NSDictionary * answer = [question valueForKey:@"answer"] ;
@@ -69,6 +69,7 @@ QuestionsDataSource * _questionsDataSource ;
                     currentAnswer.body = [answer valueForKey:@"body"] ;
                     currentQuestion.answer = currentAnswer ;
                 }
+                [questionPosted addObject:currentQuestion];
             }
             self.questionsPosted = questionPosted ;
             completionBlock(YES) ;
