@@ -1,5 +1,5 @@
 //
-//  Question.h
+//  Answer.h
 //  YNotToday
 //
 //  Created by Stoica Alexandru on 3/20/14.
@@ -8,12 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@class Answer;
-
-@interface Question : NSObject
+@interface Answer : NSObject
 
 @property (strong, nonatomic) NSString * body ;
-@property (assign, nonatomic) int question_id ;
-@property (strong, nonatomic) Answer * answer ;
 
 @end
