@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D2139D018DAFB2D0059135C /* QuestionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2139CF18DAFB2D0059135C /* QuestionsTableViewController.m */; };
+		7D2139D318DAFB540059135C /* QuestionsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2139D218DAFB540059135C /* QuestionsDataSource.m */; };
+		7D2139D718DB008C0059135C /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2139D618DB008C0059135C /* Question.m */; };
 		7D4F2A6918DAED100001BB8C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D4F2A6818DAED100001BB8C /* Foundation.framework */; };
 		7D4F2A6B18DAED100001BB8C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D4F2A6A18DAED100001BB8C /* CoreGraphics.framework */; };
 		7D4F2A6D18DAED100001BB8C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D4F2A6C18DAED100001BB8C /* UIKit.framework */; };
@@ -36,6 +39,12 @@
 
 /* Begin PBXFileReference section */
 		216BD7A5AFE14FD8A517D137 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D2139CE18DAFB2D0059135C /* QuestionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsTableViewController.h; sourceTree = "<group>"; };
+		7D2139CF18DAFB2D0059135C /* QuestionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsTableViewController.m; sourceTree = "<group>"; };
+		7D2139D118DAFB540059135C /* QuestionsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionsDataSource.h; path = "Data Sources/QuestionsDataSource.h"; sourceTree = "<group>"; };
+		7D2139D218DAFB540059135C /* QuestionsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionsDataSource.m; path = "Data Sources/QuestionsDataSource.m"; sourceTree = "<group>"; };
+		7D2139D518DB008C0059135C /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Question.h; path = Models/Question.h; sourceTree = "<group>"; };
+		7D2139D618DB008C0059135C /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Question.m; path = Models/Question.m; sourceTree = "<group>"; };
 		7D4F2A6518DAED100001BB8C /* YNotToday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YNotToday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D4F2A6818DAED100001BB8C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7D4F2A6A18DAED100001BB8C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -83,6 +92,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D2139D418DAFB560059135C /* Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7D2139D118DAFB540059135C /* QuestionsDataSource.h */,
+				7D2139D218DAFB540059135C /* QuestionsDataSource.m */,
+			);
+			name = "Data Sources";
+			sourceTree = "<group>";
+		};
+		7D2139D818DB00910059135C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7D2139D518DB008C0059135C /* Question.h */,
+				7D2139D618DB008C0059135C /* Question.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		7D4F2A5C18DAED100001BB8C = {
 			isa = PBXGroup;
 			children = (
@@ -118,13 +145,17 @@
 		7D4F2A6E18DAED100001BB8C /* YNotToday */ = {
 			isa = PBXGroup;
 			children = (
+				7D2139D818DB00910059135C /* Models */,
 				7D4F2AA018DAF0AB0001BB8C /* Constants.h */,
 				7D4F2AA118DAF0AB0001BB8C /* Constants.m */,
 				7D4F2A7718DAED100001BB8C /* AppDelegate.h */,
 				7D4F2A7818DAED100001BB8C /* AppDelegate.m */,
 				7D4F2A7A18DAED100001BB8C /* Main.storyboard */,
+				7D2139CE18DAFB2D0059135C /* QuestionsTableViewController.h */,
+				7D2139CF18DAFB2D0059135C /* QuestionsTableViewController.m */,
 				7D4F2A8018DAED100001BB8C /* Images.xcassets */,
 				7D4F2A6F18DAED100001BB8C /* Supporting Files */,
+				7D2139D418DAFB560059135C /* Data Sources */,
 			);
 			path = YNotToday;
 			sourceTree = "<group>";
@@ -294,8 +325,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D4F2A7918DAED100001BB8C /* AppDelegate.m in Sources */,
+				7D2139D318DAFB540059135C /* QuestionsDataSource.m in Sources */,
 				7D4F2A7518DAED100001BB8C /* main.m in Sources */,
+				7D2139D718DB008C0059135C /* Question.m in Sources */,
 				7D4F2AA218DAF0AB0001BB8C /* Constants.m in Sources */,
+				7D2139D018DAFB2D0059135C /* QuestionsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

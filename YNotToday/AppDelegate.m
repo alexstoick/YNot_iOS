@@ -21,6 +21,8 @@
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
 	NSLog(@"My token is: %@", deviceToken);
+    NSUserDefaults * userDefaults ;
+    [userDefaults setInteger:@1 forKey:@"user_id"];
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
