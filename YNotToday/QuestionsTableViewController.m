@@ -9,6 +9,7 @@
 #import "QuestionsTableViewController.h"
 #import "QuestionsDataSource.h"
 #import "Question.h"
+#import "Answer.h"
 
 @interface QuestionsTableViewController ()
 
@@ -46,20 +47,47 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if ( section == 0 )
+    {
+        return @"Question Posted" ;
+    }
+    if ( section == 1 )
+    {
+        return @"Question Received" ;
+    }
+    return nil ;
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[QuestionsDataSource getInstance].questionsPosted count];
+    if ( section == 0 )
+        return [[QuestionsDataSource getInstance].questionsPosted count];
+    if ( section == 1 )
+        return [[QuestionsDataSource getInstance].questionsReceived count];
+    return 0 ;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"normalCell" forIndexPath:indexPath];
 
-    Question * question = [[QuestionsDataSource getInstance].questionsPosted objectAtIndex:indexPath.row] ;
-    cell.textLabel.text = question.body ;
+    if ( indexPath.section == 0 )
+    {
+        Question * question = [[QuestionsDataSource getInstance].questionsPosted objectAtIndex:indexPath.row] ;
+        cell.textLabel.text = question.body ;
+        cell.detailTextLabel.text = question.answer.body ;
+    }
+    if ( indexPath.section == 1)
+    {
+        Question * question = [[QuestionsDataSource getInstance].questionsReceived objectAtIndex:indexPath.row] ;
+        cell.textLabel.text = question.body ;
+        cell.detailTextLabel.text = question.answer.body ;
+    }
 
     return cell;
 }

@@ -11,6 +11,7 @@
 		7D2139D318DAFB540059135C /* QuestionsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2139D218DAFB540059135C /* QuestionsDataSource.m */; };
 		7D2139D718DB008C0059135C /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2139D618DB008C0059135C /* Question.m */; };
 		7D2139DB18DB02590059135C /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2139DA18DB02590059135C /* Answer.m */; };
+		7D2139DE18DB0E700059135C /* QuestionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2139DD18DB0E700059135C /* QuestionDetailViewController.m */; };
 		7D4F2A6918DAED100001BB8C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D4F2A6818DAED100001BB8C /* Foundation.framework */; };
 		7D4F2A6B18DAED100001BB8C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D4F2A6A18DAED100001BB8C /* CoreGraphics.framework */; };
 		7D4F2A6D18DAED100001BB8C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D4F2A6C18DAED100001BB8C /* UIKit.framework */; };
@@ -48,6 +49,8 @@
 		7D2139D618DB008C0059135C /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Question.m; path = Models/Question.m; sourceTree = "<group>"; };
 		7D2139D918DB02590059135C /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Answer.h; path = Models/Answer.h; sourceTree = "<group>"; };
 		7D2139DA18DB02590059135C /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Answer.m; path = Models/Answer.m; sourceTree = "<group>"; };
+		7D2139DC18DB0E700059135C /* QuestionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionDetailViewController.h; sourceTree = "<group>"; };
+		7D2139DD18DB0E700059135C /* QuestionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionDetailViewController.m; sourceTree = "<group>"; };
 		7D4F2A6518DAED100001BB8C /* YNotToday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YNotToday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D4F2A6818DAED100001BB8C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7D4F2A6A18DAED100001BB8C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -156,6 +159,8 @@
 				7D4F2A7718DAED100001BB8C /* AppDelegate.h */,
 				7D4F2A7818DAED100001BB8C /* AppDelegate.m */,
 				7D4F2A7A18DAED100001BB8C /* Main.storyboard */,
+				7D2139DC18DB0E700059135C /* QuestionDetailViewController.h */,
+				7D2139DD18DB0E700059135C /* QuestionDetailViewController.m */,
 				7D2139CE18DAFB2D0059135C /* QuestionsTableViewController.h */,
 				7D2139CF18DAFB2D0059135C /* QuestionsTableViewController.m */,
 				7D4F2A8018DAED100001BB8C /* Images.xcassets */,
@@ -332,6 +337,7 @@
 				7D4F2A7918DAED100001BB8C /* AppDelegate.m in Sources */,
 				7D2139DB18DB02590059135C /* Answer.m in Sources */,
 				7D2139D318DAFB540059135C /* QuestionsDataSource.m in Sources */,
+				7D2139DE18DB0E700059135C /* QuestionDetailViewController.m in Sources */,
 				7D4F2A7518DAED100001BB8C /* main.m in Sources */,
 				7D2139D718DB008C0059135C /* Question.m in Sources */,
 				7D4F2AA218DAF0AB0001BB8C /* Constants.m in Sources */,

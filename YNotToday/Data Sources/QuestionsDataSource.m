@@ -53,7 +53,7 @@ QuestionsDataSource * _questionsDataSource ;
             NSDictionary * questionsPosted = [responseObject valueForKey:@"questions_posted"] ;
             NSDictionary * questionsReceived = [responseObject valueForKey:@"questions_received"] ;
 
-            NSMutableArray * questionPosted = [[NSMutableArray alloc] init] ;
+            NSMutableArray * questionsPostedArray = [[NSMutableArray alloc] init] ;
 
             for ( NSDictionary * question in questionsPosted )
             {
@@ -69,9 +69,22 @@ QuestionsDataSource * _questionsDataSource ;
                     currentAnswer.body = [answer valueForKey:@"body"] ;
                     currentQuestion.answer = currentAnswer ;
                 }
-                [questionPosted addObject:currentQuestion];
+                [questionsPostedArray addObject:currentQuestion];
             }
-            self.questionsPosted = questionPosted ;
+
+            NSMutableArray * questionsReceivedArray = [[NSMutableArray alloc] init];
+
+            for ( NSDictionary * question in questionsReceived)
+            {
+                Question * currentQuestion = [[Question alloc] init];
+                currentQuestion.body = [question valueForKey:@"body"] ;
+                currentQuestion.question_id = (int)[[question valueForKey:@"id"] integerValue] ;
+                currentQuestion.answer = nil ;
+                [questionsReceivedArray addObject:currentQuestion];
+            }
+
+            self.questionsPosted = questionsPostedArray ;
+            self.questionsReceived = questionsReceivedArray ;
             completionBlock(YES) ;
 
         }
