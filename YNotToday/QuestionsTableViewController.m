@@ -10,6 +10,7 @@
 #import "QuestionsDataSource.h"
 #import "Question.h"
 #import "Answer.h"
+#import "QuestionDetailViewController.h"
 
 @interface QuestionsTableViewController ()
 
@@ -93,7 +94,6 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-
     UILabel * headerLabel = [[UILabel alloc] init] ;
     headerLabel.frame = CGRectMake( 0 , 0 , 320 , 21 ) ;
     headerLabel.font = [UIFont fontWithName:@"Avenir" size:18] ;
@@ -106,20 +106,28 @@
     [headerView addSubview:headerLabel];
     headerView.layer.borderColor = [UIColor blueColor].CGColor ;
     headerView.layer.borderWidth = 1.0f ;
-
     return headerView ;
-
 }
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"questionsTableToDetail"] )
+    {
+        QuestionDetailViewController * questionDetailViewController = [segue destinationViewController] ;
+        NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow] ;
+        Question * question = nil ;
+        if ( indexPath.section == 0 )
+        {
+            question = [[QuestionsDataSource getInstance].questionsPosted objectAtIndex:indexPath.row] ;
+        }
+        if ( indexPath.section == 1)
+        {
+            question = [[QuestionsDataSource getInstance].questionsReceived objectAtIndex:indexPath.row] ;
+        }
+
+        questionDetailViewController.question = question ;
+    }
 }
-*/
 
 @end

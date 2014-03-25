@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Question.h"
 
 @interface QuestionDetailViewController : UIViewController
+
+@property (strong, nonatomic) Question * question ;
 
 @end

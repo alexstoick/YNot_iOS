@@ -31,7 +31,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="QGQ-Tq-M2D" kind="push" id="Dz8-c2-Jvm"/>
+                                    <segue destination="QGQ-Tq-M2D" kind="push" identifier="questionsTableToDetail" id="Dz8-c2-Jvm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -44,7 +44,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aNh-Zn-Gmr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="373" y="-47"/>
+            <point key="canvasLocation" x="-555" y="-47"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="s8f-EE-3h8">
@@ -80,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cb5-Yx-D5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="861" y="-47"/>
+            <point key="canvasLocation" x="-31" y="-47"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9YK-2S-bCX">
@@ -98,7 +98,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jva-Xf-URe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-144" y="11"/>
+            <point key="canvasLocation" x="-1174" y="-47"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
