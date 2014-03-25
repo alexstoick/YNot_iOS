@@ -92,6 +92,25 @@
     return cell;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+
+    UILabel * headerLabel = [[UILabel alloc] init] ;
+    headerLabel.frame = CGRectMake( 0 , 0 , 320 , 21 ) ;
+    headerLabel.font = [UIFont fontWithName:@"Avenir" size:18] ;
+    if ( section == 0 )
+        headerLabel.text = @"   Questions posted" ;
+    else
+        headerLabel.text = @"   Questions received" ;
+    headerLabel.backgroundColor = [UIColor lightGrayColor] ;
+    UIView * headerView = [[UIView alloc] init] ;
+    [headerView addSubview:headerLabel];
+    headerView.layer.borderColor = [UIColor blueColor].CGColor ;
+    headerView.layer.borderWidth = 1.0f ;
+
+    return headerView ;
+
+}
+
 /*
 #pragma mark - Navigation
 
