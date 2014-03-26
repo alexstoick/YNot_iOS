@@ -7,26 +7,38 @@
 //
 
 #import "QuestionDetailViewController.h"
+#import "Answer.h"
 
 @interface QuestionDetailViewController ()
-
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UITextView *questionLabel;
 @end
 
 @implementation QuestionDetailViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
     }
-    return self;
+
+    return YES;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.titleLabel.text = self.question.body ;
+    if ( self.question.answer )
+    {
+        self.questionLabel.text = self.question.answer.body ;
+        self.questionLabel.layer.borderColor = [UIColor lightGrayColor].CGColor ;
+        self.questionLabel.layer.borderWidth = 0.5f ;
+        self.questionLabel.editable = false ;
+        self.questionLabel.delegate =  self ;
+    }
+
 }
 
 - (void)didReceiveMemoryWarning

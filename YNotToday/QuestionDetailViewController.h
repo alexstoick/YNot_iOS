@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Question.h"
 
-@interface QuestionDetailViewController : UIViewController
+@interface QuestionDetailViewController : UIViewController <UITextViewDelegate>
 
 @property (strong, nonatomic) Question * question ;
 

@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="-555" y="-47"/>
         </scene>
-        <!--View Controller-->
+        <!--Question Detail View Controller-->
         <scene sceneID="s8f-EE-3h8">
             <objects>
-                <viewController id="QGQ-Tq-M2D" sceneMemberID="viewController">
+                <viewController id="QGQ-Tq-M2D" customClass="QuestionDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SXD-dT-PNE"/>
                         <viewControllerLayoutGuide type="bottom" id="Yh1-6R-NRK"/>
@@ -66,17 +66,30 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="865-nF-p64">
-                                <rect key="frame" x="20" y="127" width="280" height="128"/>
+                                <rect key="frame" x="20" y="127" width="280" height="148"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </string>
                                 <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="alert" returnKeyType="go" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="alert" returnKeyType="done" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="QGQ-Tq-M2D" id="Gb1-FH-Rkd"/>
+                                </connections>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEk-dO-weO">
+                                <rect key="frame" x="137" y="290" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Done!"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="T9X-4J-n44"/>
+                    <connections>
+                        <outlet property="questionLabel" destination="865-nF-p64" id="fsc-ds-pLB"/>
+                        <outlet property="titleLabel" destination="Gig-a3-j0z" id="M7d-kh-jff"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cb5-Yx-D5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
