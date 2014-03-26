@@ -95,4 +95,20 @@ QuestionsDataSource * _questionsDataSource ;
 
 }
 
+- (void)markSeenForQuestion:(Question *)question withCompletion:(void (^)(BOOL))completionBlock {
+
+    NSString * url = [NSString stringWithFormat:@"%@/questions/%d/seen" , BaseURL , question.question_id ] ;
+    [self.manager
+            GET:url
+     parameters:nil
+        success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            completionBlock(YES);
+    }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            completionBlock(NO);
+    }] ;
+
+}
+
+
 @end

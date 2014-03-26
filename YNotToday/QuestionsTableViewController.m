@@ -51,16 +51,10 @@
     return 2;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if ( section == 0 )
-    {
-        return @"Question Posted" ;
-    }
-    if ( section == 1 )
-    {
-        return @"Question Received" ;
-    }
-    return nil ;
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if ( [self tableView:tableView numberOfRowsInSection:section] == 0 )
+        return 0 ;
+    return 21 ;
 }
 
 
@@ -95,12 +89,20 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UILabel * headerLabel = [[UILabel alloc] init] ;
+    if ( section == 0 )
+    {
+        if ( [[QuestionsDataSource getInstance].questionsPosted count] == 0 )
+            return nil ;
+        headerLabel.text = @"   Questions posted" ;
+    }
+    else
+    {
+        if ([[QuestionsDataSource getInstance].questionsReceived count] == 0 )
+            return nil ;
+        headerLabel.text = @"   Questions received" ;
+    }
     headerLabel.frame = CGRectMake( 0 , 0 , 320 , 21 ) ;
     headerLabel.font = [UIFont fontWithName:@"Avenir" size:18] ;
-    if ( section == 0 )
-        headerLabel.text = @"   Questions posted" ;
-    else
-        headerLabel.text = @"   Questions received" ;
     headerLabel.backgroundColor = [UIColor lightGrayColor] ;
     UIView * headerView = [[UIView alloc] init] ;
     [headerView addSubview:headerLabel];

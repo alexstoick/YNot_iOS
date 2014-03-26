@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Question.h"
 
 @interface QuestionsDataSource : NSObject
 
@@ -16,4 +17,5 @@
 
 -(void)parseQuestionsWithCompletion:(void(^)(BOOL)) completionBlock ;
 
+-(void)markSeenForQuestion:(Question * )question withCompletion:(void(^)(BOOL)) completionBlock ;
 @end
