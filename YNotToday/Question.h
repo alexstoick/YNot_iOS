@@ -15,6 +15,9 @@
 
 @property (nonatomic, retain) NSString * body;
 @property (nonatomic, retain) NSNumber * question_id;
+@property (nonatomic, retain) NSNumber * posted_by_me;
+@property (nonatomic, retain) NSNumber * seen;
+@property (nonatomic, retain) NSNumber * property_sent;
 @property (nonatomic, retain) Answer *answer;
 
 @end

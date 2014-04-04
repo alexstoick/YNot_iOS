@@ -11,6 +11,9 @@
 #import "Constants.h"
 #import "Question.h"
 #import "Answer.h"
+#import "NSManagedObject+MagicalRecord.h"
+#import "NSManagedObjectContext+MagicalRecord.h"
+#import "NSManagedObjectContext+MagicalSaves.h"
 
 QuestionsDataSource * _questionsDataSource ;
 
@@ -50,41 +53,33 @@ QuestionsDataSource * _questionsDataSource ;
      parameters:nil
         success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
-            NSDictionary * questionsPosted = [responseObject valueForKey:@"questions_posted"] ;
-            NSDictionary * questionsReceived = [responseObject valueForKey:@"questions_received"] ;
+            NSDictionary * questions = [responseObject valueForKey:@"questions"] ;
 
-            NSMutableArray * questionsPostedArray = [[NSMutableArray alloc] init] ;
-
-            for ( NSDictionary * question in questionsPosted )
+            NSMutableArray * questionsArray = [[NSMutableArray alloc] init] ;
+//            NSArray * storedQuestions = [Question MR_findAll];
+//
+//            for ( Question * question in storedQuestions)
+//            {
+//                [question MR_deleteEntity];
+//            }
+            
+            for ( NSDictionary * question in questions )
             {
-                Question * currentQuestion = [[Question alloc] init];
-                Answer * currentAnswer = nil;
+                Question * currentQuestion = [Question MR_createEntity];
                 currentQuestion.body = [question valueForKey:@"body"] ;
-                currentQuestion.question_id = (int)[[question valueForKey:@"id"] integerValue] ;
-                if ( [[question valueForKey:@"has_answer"] boolValue] )
-                {
-                    NSDictionary * answer = [question valueForKey:@"answer"] ;
-
-                    currentAnswer = [[Answer alloc] init] ;
-                    currentAnswer.body = [answer valueForKey:@"body"] ;
-                    currentQuestion.answer = currentAnswer ;
-                }
-                [questionsPostedArray addObject:currentQuestion];
+                currentQuestion.question_id = [question valueForKey:@"id"] ;
+                currentQuestion.posted_by_me = @0 ;
+                [questionsArray addObject:currentQuestion];
             }
 
-            NSMutableArray * questionsReceivedArray = [[NSMutableArray alloc] init];
+            Question * testQuestion = [Question MR_createEntity] ;
+            testQuestion.body = @"test question?" ;
+            testQuestion.question_id = @-1 ;
+            testQuestion.posted_by_me = @1 ;
 
-            for ( NSDictionary * question in questionsReceived)
-            {
-                Question * currentQuestion = [[Question alloc] init];
-                currentQuestion.body = [question valueForKey:@"body"] ;
-                currentQuestion.question_id = (int)[[question valueForKey:@"id"] integerValue] ;
-                currentQuestion.answer = nil ;
-                [questionsReceivedArray addObject:currentQuestion];
-            }
-
-            self.questionsPosted = questionsPostedArray ;
-            self.questionsReceived = questionsReceivedArray ;
+            self.questionsPosted = questionsArray ;
+            self.questionsReceived = [Question MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"posted_by_me = 1"]];
+            [self saveContext] ;
             completionBlock(YES) ;
 
         }
@@ -97,7 +92,7 @@ QuestionsDataSource * _questionsDataSource ;
 
 - (void)markSeenForQuestion:(Question *)question withCompletion:(void (^)(BOOL))completionBlock {
 
-    NSString * url = [NSString stringWithFormat:@"%@/questions/%d/seen" , BaseURL , question.question_id ] ;
+    NSString * url = [NSString stringWithFormat:@"%@/questions/%@/seen" , BaseURL , question.question_id ] ;
     [self.manager
             GET:url
      parameters:nil
@@ -112,7 +107,7 @@ QuestionsDataSource * _questionsDataSource ;
 
 - (void)addAnswer:(NSString *)answer forQuestion:(Question *)question withCompletion:(void (^)(BOOL))completionBlock {
 
-    NSString * url = [NSString stringWithFormat:@"%@/questions/%d/answers" , BaseURL , question.question_id ] ;
+    NSString * url = [NSString stringWithFormat:@"%@/questions/%@/answers" , BaseURL , question.question_id ] ;
     NSDictionary * params = [NSDictionary dictionaryWithObject:answer forKey:@"answer" ] ;
 
     [self.manager
@@ -125,8 +120,16 @@ QuestionsDataSource * _questionsDataSource ;
              completionBlock(NO) ;
         }
     ] ;
+}
 
-
+- (void)saveContext {
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+        if (success) {
+            NSLog(@"You successfully saved your context.");
+        } else if (error) {
+            NSLog(@"Error saving context: %@", error.description);
+        }
+    }];
 }
 
 

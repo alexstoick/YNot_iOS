@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MagicalRecord+Setup.h"
 
 @implementation AppDelegate
 
@@ -16,6 +17,7 @@
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 
     [[NSUserDefaults standardUserDefaults]  setInteger:1 forKey:@"user_id"];
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"YNotModel"];
     return YES;
 }
 
