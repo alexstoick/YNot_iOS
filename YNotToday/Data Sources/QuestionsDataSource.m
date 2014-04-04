@@ -56,12 +56,12 @@ QuestionsDataSource * _questionsDataSource ;
             NSDictionary * questions = [responseObject valueForKey:@"questions"] ;
 
             NSMutableArray * questionsArray = [[NSMutableArray alloc] init] ;
-//            NSArray * storedQuestions = [Question MR_findAll];
-//
-//            for ( Question * question in storedQuestions)
-//            {
-//                [question MR_deleteEntity];
-//            }
+            NSArray * storedQuestions = [Question MR_findAll];
+
+            for ( Question * question in storedQuestions)
+            {
+                [question MR_deleteEntity];
+            }
             
             for ( NSDictionary * question in questions )
             {
@@ -76,6 +76,7 @@ QuestionsDataSource * _questionsDataSource ;
             testQuestion.body = @"test question?" ;
             testQuestion.question_id = @-1 ;
             testQuestion.posted_by_me = @1 ;
+            Answer * testAnswer = [Answer MR_createEntity];
 
             self.questionsPosted = questionsArray ;
             self.questionsReceived = [Question MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"posted_by_me = 1"]];

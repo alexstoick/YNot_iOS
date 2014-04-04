@@ -7,11 +7,13 @@
 //
 
 #import "Answer.h"
+#import "Question.h"
 
 
 @implementation Answer
 
 @dynamic body;
+@dynamic answer_id;
 @dynamic question;
 
 @end

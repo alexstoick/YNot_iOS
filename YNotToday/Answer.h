@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Question;
 
 @interface Answer : NSManagedObject
 
 @property (nonatomic, retain) NSString * body;
-@property (nonatomic, retain) NSManagedObject *question;
+@property (nonatomic, retain) NSNumber * answer_id;
+@property (nonatomic, retain) Question *question;
 
 @end
