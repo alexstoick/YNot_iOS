@@ -12,8 +12,8 @@
 #import "ProgressHUD.h"
 
 @interface QuestionDetailViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UITextView *questionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *questionLabel;
+@property (weak, nonatomic) IBOutlet UITextView *answerTextView;
 @end
 
 @implementation QuestionDetailViewController
@@ -31,15 +31,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.titleLabel.text = self.question.body ;
-    self.questionLabel.layer.borderColor = [UIColor lightGrayColor].CGColor ;
-    self.questionLabel.layer.borderWidth = 0.5f ;
+    self.questionLabel.text = self.question.body ;
+    self.answerTextView.layer.borderColor = [UIColor lightGrayColor].CGColor ;
+    self.answerTextView.layer.borderWidth = 0.5f ;
     if ( self.question.answer )
     {
-        self.questionLabel.text = self.question.answer.body ;
+        self.answerTextView.text = self.question.answer.body ;
 
-        self.questionLabel.editable = false ;
-        self.questionLabel.delegate =  self ;
+        self.answerTextView.editable = false ;
+        self.answerTextView.delegate =  self ;
     }
 
 }
@@ -50,24 +50,36 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)doneButtonTouched:(id)sender {
-    [self markQuestionAsSeen];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) markQuestionAsSeen {
 
-    [ProgressHUD show:@"Marking the question as read ..."];
+    [ProgressHUD show:@"Magic happening ..."];
 
-    [[QuestionsDataSource getInstance] markSeenForQuestion:self.question withCompletion:^(BOOL b) {
-        [self.navigationController popViewControllerAnimated:YES];
-        [ProgressHUD dismiss];
-    }];
-
+    if ( self.question.answer )
+    {
+        // This is a posted question. We just need to mark it as read
+        [[QuestionsDataSource getInstance] markSeenForQuestion:self.question withCompletion:^(BOOL b) {
+            [self.navigationController popViewControllerAnimated:YES];
+            [ProgressHUD dismiss];
+        }];
+    }
+    else
+    {
+        //This is a question received. We need to submit the answer and be done.
+        NSString * answer = [self.answerTextView text] ;
+        NSLog(@"%@" , answer ) ;
+        [[QuestionsDataSource getInstance] addAnswer:answer forQuestion:self.question withCompletion:^(BOOL b) {
+            [self.navigationController popViewControllerAnimated:YES];
+            [ProgressHUD dismiss];
+        } ] ;
+    }
 }
 
 #pragma mark - Navigation
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)viewWillDisappear:(BOOL)animated {
     [self markQuestionAsSeen];
 }
 

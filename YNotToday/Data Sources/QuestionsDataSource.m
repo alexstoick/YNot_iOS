@@ -110,5 +110,24 @@ QuestionsDataSource * _questionsDataSource ;
 
 }
 
+- (void)addAnswer:(NSString *)answer forQuestion:(Question *)question withCompletion:(void (^)(BOOL))completionBlock {
+
+    NSString * url = [NSString stringWithFormat:@"%@/questions/%d/answers" , BaseURL , question.question_id ] ;
+    NSDictionary * params = [NSDictionary dictionaryWithObject:answer forKey:@"answer" ] ;
+
+    [self.manager
+            POST:url
+      parameters:params
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             completionBlock(YES);
+        }
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             completionBlock(NO) ;
+        }
+    ] ;
+
+
+}
+
 
 @end

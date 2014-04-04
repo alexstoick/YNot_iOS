@@ -89,8 +89,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="T9X-4J-n44"/>
                     <connections>
-                        <outlet property="questionLabel" destination="865-nF-p64" id="fsc-ds-pLB"/>
-                        <outlet property="titleLabel" destination="Gig-a3-j0z" id="M7d-kh-jff"/>
+                        <outlet property="answerTextView" destination="865-nF-p64" id="541-vU-FZx"/>
+                        <outlet property="questionLabel" destination="Gig-a3-j0z" id="7sZ-ku-Bwe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cb5-Yx-D5p" userLabel="First Responder" sceneMemberID="firstResponder"/>

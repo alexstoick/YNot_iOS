@@ -18,4 +18,7 @@
 -(void)parseQuestionsWithCompletion:(void(^)(BOOL)) completionBlock ;
 
 -(void)markSeenForQuestion:(Question * )question withCompletion:(void(^)(BOOL)) completionBlock ;
+
+-(void)addAnswer:(NSString *)answer forQuestion:(Question *)question withCompletion:(void(^)(BOOL)) completionBlock ;
+
 @end
