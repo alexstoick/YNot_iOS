@@ -44,11 +44,6 @@
 
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (IBAction)doneButtonTouched:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -70,10 +65,18 @@
         //This is a question received. We need to submit the answer and be done.
         NSString * answer = [self.answerTextView text] ;
         NSLog(@"%@" , answer ) ;
-        [[QuestionsDataSource getInstance] addAnswer:answer forQuestion:self.question withCompletion:^(BOOL b) {
+        if ( ! [answer isEqualToString:@""] )
+        {
+            [[QuestionsDataSource getInstance] addAnswer:answer forQuestion:self.question withCompletion:^(BOOL b) {
+                [self.navigationController popViewControllerAnimated:YES];
+                [ProgressHUD dismiss];
+            } ] ;
+        }
+        else
+        {
             [self.navigationController popViewControllerAnimated:YES];
             [ProgressHUD dismiss];
-        } ] ;
+        }
     }
 }
 

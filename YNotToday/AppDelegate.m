@@ -17,6 +17,7 @@
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 
     [[NSUserDefaults standardUserDefaults]  setInteger:1 forKey:@"user_id"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"123" forKey:@"user_token"];
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"YNotModel"];
     return YES;
 }
