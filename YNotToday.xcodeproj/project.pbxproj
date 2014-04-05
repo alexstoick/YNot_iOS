@@ -24,6 +24,7 @@
 		7D4F2A9218DAED100001BB8C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D4F2A9018DAED100001BB8C /* InfoPlist.strings */; };
 		7D4F2A9418DAED100001BB8C /* YNotTodayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4F2A9318DAED100001BB8C /* YNotTodayTests.m */; };
 		7D4F2AA218DAF0AB0001BB8C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4F2AA118DAF0AB0001BB8C /* Constants.m */; };
+		7D81B54418F05D710008D80C /* ContactsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D81B54318F05D710008D80C /* ContactsDataSource.m */; };
 		7DC23B8918EEA1EF00E5F329 /* YNotModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7DC23B8718EEA1EF00E5F329 /* YNotModel.xcdatamodeld */; };
 		7DF399DC18EEB62E0009295D /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF399DB18EEB62E0009295D /* Question.m */; };
 		7DF399DF18EEB7170009295D /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF399DE18EEB7170009295D /* Answer.m */; };
@@ -67,6 +68,8 @@
 		7D4F2A9318DAED100001BB8C /* YNotTodayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNotTodayTests.m; sourceTree = "<group>"; };
 		7D4F2AA018DAF0AB0001BB8C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		7D4F2AA118DAF0AB0001BB8C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		7D81B54218F05D710008D80C /* ContactsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsDataSource.h; sourceTree = "<group>"; };
+		7D81B54318F05D710008D80C /* ContactsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsDataSource.m; sourceTree = "<group>"; };
 		7DC23B8818EEA1EF00E5F329 /* YNotModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YNotModel.xcdatamodel; sourceTree = "<group>"; };
 		7DF399DA18EEB62E0009295D /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		7DF399DB18EEB62E0009295D /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 			children = (
 				7D2139D118DAFB540059135C /* QuestionsDataSource.h */,
 				7D2139D218DAFB540059135C /* QuestionsDataSource.m */,
+				7D81B54218F05D710008D80C /* ContactsDataSource.h */,
+				7D81B54318F05D710008D80C /* ContactsDataSource.m */,
 			);
 			name = "Data Sources";
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 				7D4F2A7918DAED100001BB8C /* AppDelegate.m in Sources */,
 				7D2139D318DAFB540059135C /* QuestionsDataSource.m in Sources */,
 				7D2139DE18DB0E700059135C /* QuestionDetailViewController.m in Sources */,
+				7D81B54418F05D710008D80C /* ContactsDataSource.m in Sources */,
 				7D4F2A7518DAED100001BB8C /* main.m in Sources */,
 				7D4F2AA218DAF0AB0001BB8C /* Constants.m in Sources */,
 				7DF399DC18EEB62E0009295D /* Question.m in Sources */,
