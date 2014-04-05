@@ -9,11 +9,7 @@
 #import "QuestionsDataSource.h"
 #import "AFNetworking.h"
 #import "Constants.h"
-#import "Question.h"
 #import "Answer.h"
-#import "NSManagedObject+MagicalRecord.h"
-#import "NSManagedObjectContext+MagicalRecord.h"
-#import "NSManagedObjectContext+MagicalSaves.h"
 
 QuestionsDataSource * _questionsDataSource ;
 
@@ -78,26 +74,6 @@ QuestionsDataSource * _questionsDataSource ;
                 [questionsArray addObject:currentQuestion];
             }
             
-            Question * testQuestion = [Question MR_findFirstByAttribute:@"question_id"
-                                                              withValue:@199];
-            if ( ! testQuestion )
-            {
-                testQuestion = [Question MR_createEntity];
-                testQuestion.body = @"test q?" ;
-                testQuestion.posted_by_me = @1 ;
-                testQuestion.seen = @0;
-                testQuestion.property_sent = @0 ;
-                testQuestion.question_id = @199;
-            }
-            Answer * testAnswer = [Answer MR_findFirstByAttribute:@"answer_id"
-                                                        withValue:@200];
-            if ( ! testAnswer )
-            {
-                testAnswer = [Answer MR_createEntity] ;
-                testAnswer.answer_id = @200 ;
-                testAnswer.body = @"test answer body text" ;
-            }
-            testQuestion.answer = testAnswer ;
             self.questionsPosted = [Question MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"posted_by_me = 0"]] ;
             self.questionsReceived = [Question MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"posted_by_me = 1"]];
             [self saveContext] ;
