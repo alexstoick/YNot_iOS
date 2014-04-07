@@ -19,4 +19,6 @@
 
 -(void) inviteContactAtIndex: (NSInteger) index withCompletionBlock:(void(^)(BOOL)) completionBlock ;
 
+-(void) getContactsList;
+
 @end

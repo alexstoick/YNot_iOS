@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MagicalRecord+Setup.h"
+#import "ContactsDataSource.h"
 
 @implementation AppDelegate
 
@@ -19,6 +20,9 @@
     [[NSUserDefaults standardUserDefaults]  setInteger:1 forKey:@"user_id"];
     [[NSUserDefaults standardUserDefaults] setObject:@"123" forKey:@"user_token"];
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"YNotModel"];
+
+    [[ContactsDataSource getInstance] getContactsList];
+
     return YES;
 }
 

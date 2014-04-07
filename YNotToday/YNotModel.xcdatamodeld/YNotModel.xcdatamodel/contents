@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Answer" representedClassName="Answer" syncable="YES">
-        <attribute name="answer_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES">
+        <attribute name="answer_id" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES">
             <userInfo>
                 <entry key="relatedByAttribute" value="answer_id"/>
             </userInfo>
         </attribute>
-        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="body" attributeType="String" syncable="YES"/>
         <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="answer" inverseEntity="Question" syncable="YES"/>
-        <compoundIndexes>
-            <compoundIndex>
-                <index value="answer_id"/>
-            </compoundIndex>
-        </compoundIndexes>
         <userInfo>
             <entry key="relatedByAttribute" value="answer_id"/>
         </userInfo>
     </entity>
-    <entity name="Contact" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="phone_number" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Contact" representedClassName="Contact" syncable="YES">
+        <attribute name="first_name" attributeType="String" syncable="YES"/>
+        <attribute name="last_name" attributeType="String" syncable="YES"/>
+        <attribute name="phone_number" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="thumbnail" optional="YES" attributeType="Transformable" syncable="YES"/>
         <compoundIndexes>
             <compoundIndex>
-                <index value="name"/>
+                <index value="last_name"/>
+            </compoundIndex>
+            <compoundIndex>
+                <index value="first_name"/>
+            </compoundIndex>
+            <compoundIndex>
                 <index value="phone_number"/>
             </compoundIndex>
         </compoundIndexes>
@@ -32,28 +34,23 @@
         </userInfo>
     </entity>
     <entity name="Question" representedClassName="Question" syncable="YES">
-        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="posted_by_me" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="property_sent" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="question_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES">
+        <attribute name="body" attributeType="String" syncable="YES"/>
+        <attribute name="posted_by_me" attributeType="Boolean" syncable="YES"/>
+        <attribute name="property_sent" attributeType="Boolean" syncable="YES"/>
+        <attribute name="question_id" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES">
             <userInfo>
                 <entry key="mappedByAttribute" value="questionID"/>
             </userInfo>
         </attribute>
-        <attribute name="seen" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="seen" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <relationship name="answer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Answer" inverseName="question" inverseEntity="Answer" syncable="YES"/>
-        <compoundIndexes>
-            <compoundIndex>
-                <index value="question_id"/>
-            </compoundIndex>
-        </compoundIndexes>
         <userInfo>
             <entry key="mappedByAttribute" value="question_id"/>
         </userInfo>
     </entity>
     <elements>
-        <element name="Answer" positionX="-54" positionY="9" width="128" height="88"/>
+        <element name="Answer" positionX="-54" positionY="9" width="128" height="90"/>
+        <element name="Contact" positionX="-297" positionY="0" width="128" height="103"/>
         <element name="Question" positionX="-504" positionY="-72" width="128" height="133"/>
-        <element name="Contact" positionX="-297" positionY="0" width="128" height="73"/>
     </elements>
 </model>

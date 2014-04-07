@@ -74,8 +74,8 @@ QuestionsDataSource * _questionsDataSource ;
                 [questionsArray addObject:currentQuestion];
             }
             
-            self.questionsPosted = [Question MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"posted_by_me = 0"]] ;
-            self.questionsReceived = [Question MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"posted_by_me = 1"]];
+            self.questionsPosted = [Question MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"posted_by_me = 1"]] ;
+            self.questionsReceived = [Question MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"posted_by_me = 0"]];
             [self saveContext] ;
             completionBlock(YES) ;
 

@@ -10,6 +10,9 @@
 #import "AddressBook/ABPerson.h"
 #import "ContactsDataSource.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "APAddressBook.h"
+#import "APContact.h"
+#import "Contact.h"
 
 ContactsDataSource * _contactsDataSource ;
 
@@ -30,10 +33,47 @@ ContactsDataSource * _contactsDataSource ;
     return _contactsDataSource ;
 }
 
-- (void)getContactList {
+- (void)getContactsList {
 
     // fetch the contact list from the phone
 
+    APAddressBook *addressBook = [[APAddressBook alloc] init];
+    addressBook.fieldsMask = APContactFieldFirstName | APContactFieldLastName |
+            APContactFieldPhones | APContactFieldThumbnail ;
+    addressBook.filterBlock = ^BOOL(APContact *contact)
+    {
+        return contact.phones.count > 0;
+    };
+
+
+    [addressBook loadContacts:^(NSArray *contacts, NSError *error)
+    {
+        // hide activity
+        if (!error)
+        {
+            for ( APContact * contact in contacts )
+            {
+                NSLog ( @"%@ %@" , contact.firstName , contact.lastName ) ;
+                for ( NSString * phone_number in contact.phones )
+                {
+                    Contact * contactEntity = [Contact MR_findFirstByAttribute:@"phone_number"
+                                                               withValue:phone_number] ;
+                    if ( contactEntity == nil )
+                    {
+                        contactEntity = [Contact MR_createEntity] ;
+                        contactEntity.first_name = contact.firstName ;
+                        contactEntity.last_name = contact.lastName ;
+                        contactEntity.phone_number = phone_number ;
+                        contactEntity.thumbnail = contact.thumbnail ;
+                    }
+                }
+            }
+        }
+        else
+        {
+            // show error
+        }
+    }];
 
 }
 
