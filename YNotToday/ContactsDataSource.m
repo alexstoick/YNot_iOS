@@ -53,7 +53,7 @@ ContactsDataSource * _contactsDataSource ;
         {
             for ( APContact * contact in contacts )
             {
-                NSLog ( @"%@ %@" , contact.firstName , contact.lastName ) ;
+                // NSLog ( @"%@ %@" , contact.firstName , contact.lastName ) ;
                 for ( NSString * phone_number in contact.phones )
                 {
                     Contact * contactEntity = [Contact MR_findFirstByAttribute:@"phone_number"
@@ -85,6 +85,7 @@ ContactsDataSource * _contactsDataSource ;
     NSArray * contacts = [Contact MR_findAll];
 
     self.contacts = contacts ;
+    completionBlock(YES);
 
 }
 

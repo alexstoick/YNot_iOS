@@ -16,6 +16,13 @@
 
 @implementation ContactsTableViewController
 
+- (void)viewDidAppear:(BOOL)animated {
+
+    [[ContactsDataSource getInstance] parseContactsWithCompletion:^(BOOL b) {
+        [self.tableView reloadData];
+    }];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1 ;
@@ -34,6 +41,8 @@
 
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", currentContact.first_name , currentContact.last_name ];
     cell.imageView.image = currentContact.thumbnail ;
+    [cell.imageView.layer setMasksToBounds:YES];
+    [cell.imageView.layer setCornerRadius:20];
 
     return cell;
 }
