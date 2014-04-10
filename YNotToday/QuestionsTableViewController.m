@@ -117,6 +117,7 @@
     if ([[segue identifier] isEqualToString:@"questionsTableToDetail"] )
     {
         QuestionDetailViewController * questionDetailViewController = [segue destinationViewController] ;
+        questionDetailViewController.hidesBottomBarWhenPushed = TRUE ;
         NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow] ;
         Question * question = nil ;
         if ( indexPath.section == 0 )

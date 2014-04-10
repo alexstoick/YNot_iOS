@@ -65,6 +65,7 @@ ContactsDataSource * _contactsDataSource ;
                         contactEntity.last_name = contact.lastName ;
                         contactEntity.phone_number = phone_number ;
                         contactEntity.thumbnail = contact.thumbnail ;
+                        contactEntity.has_app = @0 ;
                     }
                 }
             }
@@ -81,7 +82,9 @@ ContactsDataSource * _contactsDataSource ;
 
     //send the list of contacts to the server
     //get back the list of contacts that are in the app.
+    NSArray * contacts = [Contact MR_findAll];
 
+    self.contacts = contacts ;
 
 }
 

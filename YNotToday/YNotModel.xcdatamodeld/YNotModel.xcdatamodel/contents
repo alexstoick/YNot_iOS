@@ -14,6 +14,7 @@
     </entity>
     <entity name="Contact" representedClassName="Contact" syncable="YES">
         <attribute name="first_name" attributeType="String" syncable="YES"/>
+        <attribute name="has_app" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="last_name" attributeType="String" syncable="YES"/>
         <attribute name="phone_number" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="thumbnail" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -50,7 +51,7 @@
     </entity>
     <elements>
         <element name="Answer" positionX="-54" positionY="9" width="128" height="90"/>
-        <element name="Contact" positionX="-297" positionY="0" width="128" height="103"/>
+        <element name="Contact" positionX="-297" positionY="0" width="128" height="120"/>
         <element name="Question" positionX="-504" positionY="-72" width="128" height="133"/>
     </elements>
 </model>
