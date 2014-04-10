@@ -82,9 +82,11 @@ ContactsDataSource * _contactsDataSource ;
 
     //send the list of contacts to the server
     //get back the list of contacts that are in the app.
-    NSArray * contacts = [Contact MR_findAll];
+    NSArray * contacts = [Contact MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"has_app = 0"]];
+    NSArray * contactsInApp = [Contact MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"has_app = 1"]];
 
     self.contacts = contacts ;
+    self.contactsInApp = contactsInApp ;
     completionBlock(YES);
 
 }

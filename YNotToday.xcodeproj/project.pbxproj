@@ -12,6 +12,7 @@
 		7D2139DE18DB0E700059135C /* QuestionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2139DD18DB0E700059135C /* QuestionDetailViewController.m */; };
 		7D425B2018F6CD100039F3CE /* ContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D425B1F18F6CD100039F3CE /* ContactsTableViewController.m */; };
 		7D425B2318F6CD8F0039F3CE /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D425B2218F6CD8F0039F3CE /* Contact.m */; };
+		7D425B2618F6D4460039F3CE /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D425B2518F6D4460039F3CE /* FavoritesTableViewController.m */; };
 		7D4F2A6918DAED100001BB8C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D4F2A6818DAED100001BB8C /* Foundation.framework */; };
 		7D4F2A6B18DAED100001BB8C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D4F2A6A18DAED100001BB8C /* CoreGraphics.framework */; };
 		7D4F2A6D18DAED100001BB8C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D4F2A6C18DAED100001BB8C /* UIKit.framework */; };
@@ -55,6 +56,8 @@
 		7D425B1F18F6CD100039F3CE /* ContactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsTableViewController.m; sourceTree = "<group>"; };
 		7D425B2118F6CD8F0039F3CE /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		7D425B2218F6CD8F0039F3CE /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		7D425B2418F6D4460039F3CE /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
+		7D425B2518F6D4460039F3CE /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
 		7D4F2A6518DAED100001BB8C /* YNotToday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YNotToday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D4F2A6818DAED100001BB8C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7D4F2A6A18DAED100001BB8C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -176,6 +179,8 @@
 				7D4F2A7718DAED100001BB8C /* AppDelegate.h */,
 				7D4F2A7818DAED100001BB8C /* AppDelegate.m */,
 				7D4F2A7A18DAED100001BB8C /* Main.storyboard */,
+				7D425B2418F6D4460039F3CE /* FavoritesTableViewController.h */,
+				7D425B2518F6D4460039F3CE /* FavoritesTableViewController.m */,
 				7D425B1E18F6CD100039F3CE /* ContactsTableViewController.h */,
 				7D425B1F18F6CD100039F3CE /* ContactsTableViewController.m */,
 				7D2139DC18DB0E700059135C /* QuestionDetailViewController.h */,
@@ -361,6 +366,7 @@
 				7D4F2A7518DAED100001BB8C /* main.m in Sources */,
 				7D4F2AA218DAF0AB0001BB8C /* Constants.m in Sources */,
 				7DF399DC18EEB62E0009295D /* Question.m in Sources */,
+				7D425B2618F6D4460039F3CE /* FavoritesTableViewController.m in Sources */,
 				7D2139D018DAFB2D0059135C /* QuestionsTableViewController.m in Sources */,
 				7DF399DF18EEB7170009295D /* Answer.m in Sources */,
 				7DC23B8918EEA1EF00E5F329 /* YNotModel.xcdatamodeld in Sources */,
