@@ -33,7 +33,7 @@ ContactsDataSource * _contactsDataSource ;
     return _contactsDataSource ;
 }
 
-- (void)getContactsList {
+- (void)getContactsListWithCompletion:(void (^)(BOOL))completionBlock {
 
     // fetch the contact list from the phone
 
@@ -51,13 +51,18 @@ ContactsDataSource * _contactsDataSource ;
         // hide activity
         if (!error)
         {
+            int i = 0 ;
             for ( APContact * contact in contacts )
             {
+                ++ i ;
                 // NSLog ( @"%@ %@" , contact.firstName , contact.lastName ) ;
                 for ( NSString * phone_number in contact.phones )
                 {
                     Contact * contactEntity = [Contact MR_findFirstByAttribute:@"phone_number"
                                                                withValue:phone_number] ;
+                    NSNumber * has_app = @0 ;
+                    if ( i % 15 == 0 )
+                        has_app = @1 ;
                     if ( contactEntity == nil )
                     {
                         contactEntity = [Contact MR_createEntity] ;
@@ -65,10 +70,11 @@ ContactsDataSource * _contactsDataSource ;
                         contactEntity.last_name = contact.lastName ;
                         contactEntity.phone_number = phone_number ;
                         contactEntity.thumbnail = contact.thumbnail ;
-                        contactEntity.has_app = @0 ;
                     }
+                    contactEntity.has_app = has_app ;
                 }
             }
+            completionBlock(YES);
         }
         else
         {
@@ -82,12 +88,17 @@ ContactsDataSource * _contactsDataSource ;
 
     //send the list of contacts to the server
     //get back the list of contacts that are in the app.
-    NSArray * contacts = [Contact MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"has_app = 0"]];
-    NSArray * contactsInApp = [Contact MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"has_app = 1"]];
 
-    self.contacts = contacts ;
-    self.contactsInApp = contactsInApp ;
-    completionBlock(YES);
+    [self getContactsListWithCompletion:^(BOOL b) {
+
+        NSArray * contacts = [Contact MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"has_app = 0"]];
+        NSArray * contactsInApp = [Contact MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"has_app = 1"]];
+        self.contacts = contacts ;
+        self.contactsInApp = contactsInApp ;
+        completionBlock(YES);
+
+
+    }];
 
 }
 

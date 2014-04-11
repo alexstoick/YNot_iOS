@@ -21,8 +21,6 @@
     [[NSUserDefaults standardUserDefaults] setObject:@"123" forKey:@"user_token"];
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"YNotModel"];
 
-    [[ContactsDataSource getInstance] getContactsList];
-
     return YES;
 }
 

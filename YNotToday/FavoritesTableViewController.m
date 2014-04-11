@@ -36,7 +36,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"normalCell" forIndexPath:indexPath];
 
-    Contact * currentContact = [[ContactsDataSource getInstance].contacts objectAtIndex:indexPath.row] ;
+    Contact * currentContact = [[ContactsDataSource getInstance].contactsInApp objectAtIndex:indexPath.row] ;
 
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", currentContact.first_name , currentContact.last_name ];
     cell.imageView.image = currentContact.thumbnail ;
