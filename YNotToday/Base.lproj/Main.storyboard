@@ -301,7 +301,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="2ay-1K-rU1" kind="push" id="iR2-TY-YEx"/>
+                                    <segue destination="2ay-1K-rU1" kind="push" identifier="contactSelectionToQuestionCreation" id="iR2-TY-YEx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -322,10 +322,10 @@
             </objects>
             <point key="canvasLocation" x="1612" y="465"/>
         </scene>
-        <!--View Controller - Send Question-->
+        <!--Question Creation View Controller - Send Question-->
         <scene sceneID="lA4-HO-a8e">
             <objects>
-                <viewController id="2ay-1K-rU1" sceneMemberID="viewController">
+                <viewController id="2ay-1K-rU1" customClass="QuestionCreationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LWe-Zh-YOv"/>
                         <viewControllerLayoutGuide type="bottom" id="7eZ-hw-CXB"/>
