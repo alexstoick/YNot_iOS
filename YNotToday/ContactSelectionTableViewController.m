@@ -7,6 +7,8 @@
 //
 
 #import "ContactSelectionTableViewController.h"
+#import "ContactsDataSource.h"
+#import "Contact.h"
 
 @interface ContactSelectionTableViewController ()
 
@@ -14,58 +16,44 @@
 
 @implementation ContactSelectionTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (void)viewDidAppear:(BOOL)animated {
+    [[ContactsDataSource getInstance] parseContactsWithCompletion:^(BOOL b) {
+        [self.tableView reloadData];
+    }];
+
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    // Need to segue to the next view with this contact as the receiver of the
+    // question.
+
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)cancelButtonClicked:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1 ;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [[ContactsDataSource getInstance].contactsInApp count] ;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"normalCell" forIndexPath:indexPath];
+
+    Contact * currentContact = [[ContactsDataSource getInstance].contactsInApp objectAtIndex:indexPath.row] ;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@" , currentContact.first_name , currentContact.last_name ] ;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

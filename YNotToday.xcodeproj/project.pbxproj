@@ -30,6 +30,7 @@
 		7D81B54418F05D710008D80C /* ContactsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D81B54318F05D710008D80C /* ContactsDataSource.m */; };
 		7DC23B8918EEA1EF00E5F329 /* YNotModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7DC23B8718EEA1EF00E5F329 /* YNotModel.xcdatamodeld */; };
 		7DE59DFA18F829A40029B8E7 /* ContactSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE59DF918F829A40029B8E7 /* ContactSelectionTableViewController.m */; };
+		7DE59DFD18F82E940029B8E7 /* QuestionCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE59DFC18F82E940029B8E7 /* QuestionCreationViewController.m */; };
 		7DF399DC18EEB62E0009295D /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF399DB18EEB62E0009295D /* Question.m */; };
 		7DF399DF18EEB7170009295D /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF399DE18EEB7170009295D /* Answer.m */; };
 		CFF739D1012048E8B07CF645 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 216BD7A5AFE14FD8A517D137 /* libPods.a */; };
@@ -83,6 +84,8 @@
 		7DC23B8818EEA1EF00E5F329 /* YNotModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YNotModel.xcdatamodel; sourceTree = "<group>"; };
 		7DE59DF818F829A40029B8E7 /* ContactSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactSelectionTableViewController.h; sourceTree = "<group>"; };
 		7DE59DF918F829A40029B8E7 /* ContactSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactSelectionTableViewController.m; sourceTree = "<group>"; };
+		7DE59DFB18F82E940029B8E7 /* QuestionCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionCreationViewController.h; sourceTree = "<group>"; };
+		7DE59DFC18F82E940029B8E7 /* QuestionCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionCreationViewController.m; sourceTree = "<group>"; };
 		7DF399DA18EEB62E0009295D /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		7DF399DB18EEB62E0009295D /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		7DF399DD18EEB7170009295D /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
@@ -182,6 +185,8 @@
 				7D4F2A7718DAED100001BB8C /* AppDelegate.h */,
 				7D4F2A7818DAED100001BB8C /* AppDelegate.m */,
 				7D4F2A7A18DAED100001BB8C /* Main.storyboard */,
+				7DE59DFB18F82E940029B8E7 /* QuestionCreationViewController.h */,
+				7DE59DFC18F82E940029B8E7 /* QuestionCreationViewController.m */,
 				7DE59DF818F829A40029B8E7 /* ContactSelectionTableViewController.h */,
 				7DE59DF918F829A40029B8E7 /* ContactSelectionTableViewController.m */,
 				7D425B2418F6D4460039F3CE /* FavoritesTableViewController.h */,
@@ -367,6 +372,7 @@
 				7D425B2018F6CD100039F3CE /* ContactsTableViewController.m in Sources */,
 				7D2139DE18DB0E700059135C /* QuestionDetailViewController.m in Sources */,
 				7D425B2318F6CD8F0039F3CE /* Contact.m in Sources */,
+				7DE59DFD18F82E940029B8E7 /* QuestionCreationViewController.m in Sources */,
 				7D81B54418F05D710008D80C /* ContactsDataSource.m in Sources */,
 				7D4F2A7518DAED100001BB8C /* main.m in Sources */,
 				7D4F2AA218DAF0AB0001BB8C /* Constants.m in Sources */,

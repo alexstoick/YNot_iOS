@@ -260,7 +260,6 @@
         <!--Navigation Controller-->
         <scene sceneID="iWG-Mz-b62">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BH2-aZ-Kva" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YhW-QE-1HB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6M8-c3-3dm">
@@ -272,27 +271,28 @@
                         <segue destination="K9c-pv-z3B" kind="relationship" relationship="rootViewController" id="4lF-Rj-Tyy"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BH2-aZ-Kva" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1029" y="465"/>
         </scene>
-        <!--Table View Controller - Select contact-->
+        <!--Contact Selection Table View Controller - Select contact-->
         <scene sceneID="ksM-FH-eR3">
             <objects>
-                <tableViewController id="K9c-pv-z3B" sceneMemberID="viewController">
+                <tableViewController id="K9c-pv-z3B" customClass="ContactSelectionTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WtV-JK-QLj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="InS-km-zsQ" style="IBUITableViewCellStyleDefault" id="MgU-Z2-u6w">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="normalCell" textLabel="InS-km-zsQ" style="IBUITableViewCellStyleDefault" id="MgU-Z2-u6w">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MgU-Z2-u6w" id="Ti2-EN-ZWg">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="InS-km-zsQ">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -300,6 +300,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="2ay-1K-rU1" kind="push" id="iR2-TY-YEx"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -308,12 +311,35 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Select contact" id="jYG-Dh-8LL">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4qn-X8-emi"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4qn-X8-emi">
+                            <connections>
+                                <action selector="cancelButtonClicked:" destination="K9c-pv-z3B" id="uGQ-Oc-3QV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gt-B5-qtS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1612" y="465"/>
+        </scene>
+        <!--View Controller - Send Question-->
+        <scene sceneID="lA4-HO-a8e">
+            <objects>
+                <viewController id="2ay-1K-rU1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LWe-Zh-YOv"/>
+                        <viewControllerLayoutGuide type="bottom" id="7eZ-hw-CXB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="goP-Fg-QWh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Send Question" id="eaL-Pq-jUv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UfY-ip-Zn3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2134" y="465"/>
         </scene>
     </scenes>
     <resources>
